@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    postgres:
+        image: postgres:12
+        restart: always
+        ports:
+            - '5432:5432'
+        environment:
+            - POSTGRES_PASSWORD=temp
+            - POSTGRES_USER=temp
+            - POSTGRES_DB=comisaria_virtual
+            - TZ=Chile/Continental
+            - PGTZ=Chile/Continental
+        volumes:
+            - ./postgres_scripts:/docker-entrypoint-initdb.d/
