@@ -1,0 +1,54 @@
+[
+    {
+        "ventana": 3,
+        "descripcion": "01 - Permiso temporal individual - Asistencia a establecimiento de salud"
+    },
+    {
+        "ventana": 3,
+        "descripcion": "02 - Permiso temporal individual - Compra de insumos basicos" 
+    },
+    {
+        "ventana": 2,
+        "descripcion": "03 - Permiso temporal individual - Salida de personas con espectro austita u otra discapacidad mental"
+    },
+    {
+        "ventana": 1,
+        "descripcion": "04 - Permiso temporal individual - Paseo de mascotas"
+    },
+    {
+        "ventana": 3,
+        "descripcion": "05 - Permiso temporal individual - Pago de servicios basicos"
+    },
+    {
+        "ventana": 5,
+        "descripcion": "06 - Permiso temporal individual - Asistencia a funeral de familiar directo"
+    },
+    {
+        "ventana": 5,
+        "descripcion": "07 - Permiso temporal individual - Retiro de alimentos y textos desde organismos publicos"
+    },
+    {
+        "ventana": 24,
+        "descripcion": "08 - Permiso temporal individual - Comparecencia a una citacion en virtud de la ley"
+    },
+    {
+        "ventana": 2,
+        "descripcion": "09 - Permiso temporal individual - Entregar alimentos u otros insumos de primera necesidad a adultos mayores"
+    },
+    {
+        "ventana": 3,
+        "descripcion": "10 - Permiso temporal individual - Proporcionar alimentos o insumos de primera necesidad en recinto penitenciario"
+    },
+    {
+        "ventana": 2,
+        "descripcion": "11 - Permiso temporal individual - Retorno del menor o adolescente al hogar del titular"
+    },
+    {
+        "ventana": 3,
+        "descripcion": "12 - Permiso temporal individual - Traslado de padre o tutores a establecimientos de salud"
+    },
+    {
+        "ventana": 12,
+        "descripcion": "13 - Permiso temporal individual - Permisos de cuidadores de adultos mayores y personas con discapacidad"
+    }
+]

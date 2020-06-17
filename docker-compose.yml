@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+    postgres:
+        image: postgres:12
+        restart: always
+        ports:
+            - '5432:5432'
+        environment:
+            - POSTGRES_PASSWORD=temp
+            - POSTGRES_USER=temp
+            - POSTGRES_DB=comisaria_virtual
+        volumes:
+            - ./postgres_scripts:/docker-entrypoint-initdb.d/
+    backend:
+        build: ./backend
+        image: backend:production
+        ports:
+            - '3000:3000'
+        environment:
+            - PGUSER=temp
+            - PGHOST=postgres
+            - PGPASSWORD=temp
+            - PGDATABASE=comisaria_virtual
+            - PGPORT=5432
+            - EXPRESSPORT=3000
+            - NODE_ICU_DATA=/code/node_modules/full-icu
+        volumes:
+            - ./backend:/code
+        depends_on:
+            - postgres
