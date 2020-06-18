@@ -2,11 +2,14 @@
   "name": "pep_distribuidos_12020",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alan Barahona Ruiz",
   "license": "MIT",
-  "homepage": "https://github.com/evadotyei/pep_distribuidos_12020#readme"
+  "homepage": "https://github.com/evadotyei/pep_distribuidos_12020#readme",
+  "dependencies": {
+    "pg": "^8.2.1"
+  }
 }
