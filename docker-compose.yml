@@ -1,11 +1,11 @@
-version: '3'
+version: '3.4'
 
 services:
     postgres:
         image: postgres:12
         restart: always
-        ports:
-            - '5432:5432'
+        expose:
+            - '5432'
         environment:
             - POSTGRES_PASSWORD=temp
             - POSTGRES_USER=temp
@@ -14,3 +14,21 @@ services:
             - PGTZ=Chile/Continental
         volumes:
             - ./postgres_scripts:/docker-entrypoint-initdb.d/
+    backend:
+        build:
+            context: ./backend
+            target: development
+        image: backend:dev
+        ports:
+            - '3000:3000'
+        environment:
+            - PGUSER=temp
+            - PGHOST=postgres
+            - PGPASSWORD=temp
+            - PGDATABASE=comisaria_virtual
+            - PGPORT=5432
+            - EXPRESSPORT=3000
+        volumes:
+            - ./backend:/code
+        depends_on:
+            - postgres
