@@ -1,5 +1,5 @@
-const permisos = require('./permisos')
+const permisos = require('./permisos');
 
 module.exports = app => {
-    app.use('/permisos', permisos)
+    app.use('/api/permisos', permisos);
 }
