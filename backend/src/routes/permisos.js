@@ -1,6 +1,7 @@
 const Router = require('express-promise-router');
 const { DateTime } = require('luxon');
 const db = require('../db');
+const data = require('../data/motivos.json');
 
 const router = new Router();
 
@@ -25,7 +26,7 @@ router.post('/', async (req, res) => {
         body.direccion,
         body.motivo,
         DateTime.local().setZone('America/Santiago').toFormat('y-LL-dd HH:mm'),
-        DateTime.local().setZone('America/Santiago').plus({ hours: body.ventana }).toFormat('y-LL-dd HH:mm')
+        DateTime.local().setZone('America/Santiago').plus({ hours: data[body.motivo].ventana }).toFormat('y-LL-dd HH:mm')
     ];
     const { rows } = await db.query(query, values);
     res.status(200).send(rows[0]);

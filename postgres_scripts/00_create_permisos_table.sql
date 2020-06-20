@@ -10,10 +10,3 @@ CREATE TABLE permisos (
     hora_emision VARCHAR(16) NOT NULL,
     valido_hasta VARCHAR(16) NOT NULL
 );
-
-CREATE TABLE motivos (
-    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    codificacion SMALLINT NOT NULL,
-    ventana SMALLINT NOT NULL,
-    descripcion TEXT NOT NULL
-);
