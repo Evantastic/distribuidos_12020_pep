@@ -9,10 +9,6 @@ COPY src /code/src
 
 CMD [ "npm", "start" ]
 
-FROM development AS builder
+FROM development AS production
 
-RUN npm run build
-
-FROM nginx:1.17.9 AS production
-
-COPY --from=builder /code/build /usr/share/nginx/html
+CMD [ "npx", "pm2", "start", "/code/src/index.js", "--name", "comisaria_virtual", "--no-daemon" ]
