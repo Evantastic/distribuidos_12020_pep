@@ -1,0 +1,67 @@
+[
+    {
+        "codificacion": 1,
+        "ventana": 3,
+        "descripcion": "01 - Permiso temporal individual - Asistencia a establecimiento de salud"
+    },
+    {
+        "codificacion": 2,
+        "ventana": 3,
+        "descripcion": "02 - Permiso temporal individual - Compra de insumos basicos" 
+    },
+    {
+        "codificacion": 3,
+        "ventana": 2,
+        "descripcion": "03 - Permiso temporal individual - Salida de personas con espectro austita u otra discapacidad mental"
+    },
+    {
+        "codificacion": 4,
+        "ventana": 1,
+        "descripcion": "04 - Permiso temporal individual - Paseo de mascotas"
+    },
+    {
+        "codificacion": 5,
+        "ventana": 3,
+        "descripcion": "05 - Permiso temporal individual - Pago de servicios basicos"
+    },
+    {
+        "codificacion": 6,
+        "ventana": 5,
+        "descripcion": "06 - Permiso temporal individual - Asistencia a funeral de familiar directo"
+    },
+    {
+        "codificacion": 7,
+        "ventana": 5,
+        "descripcion": "07 - Permiso temporal individual - Retiro de alimentos y textos desde organismos publicos"
+    },
+    {
+        "codificacion": 8,
+        "ventana": 24,
+        "descripcion": "08 - Permiso temporal individual - Comparecencia a una citacion en virtud de la ley"
+    },
+    {
+        "codificacion": 9,
+        "ventana": 2,
+        "descripcion": "09 - Permiso temporal individual - Entregar alimentos u otros insumos de primera necesidad a adultos mayores"
+    },
+    {
+        "codificacion": 10,
+        "ventana": 3,
+        "descripcion": "10 - Permiso temporal individual - Proporcionar alimentos o insumos de primera necesidad en recinto penitenciario"
+    },
+    {
+        "codificacion": 11,
+        "ventana": 2,
+        "descripcion": "11 - Permiso temporal individual - Retorno del menor o adolescente al hogar del titular"
+    },
+    {
+        "codificacion": 12,
+        "ventana": 3,
+        "descripcion": "12 - Permiso temporal individual - Traslado de padre o tutores a establecimientos de salud"
+    },
+    {
+        "codificacion": 13,
+        "ventana": 12,
+        "descripcion": "13 - Permiso temporal individual - Permisos de cuidadores de adultos mayores y personas con discapacidad"
+    }
+]

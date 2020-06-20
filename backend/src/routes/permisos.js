@@ -8,7 +8,6 @@ module.exports = router;
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params
-    console.log();
     const { rows } = await db.query('SELECT * FROM permisos WHERE id_persona = $1',  [ id ]);
     res.status(200).send(rows[0]);
 });
