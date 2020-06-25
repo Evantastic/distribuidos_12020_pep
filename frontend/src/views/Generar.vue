@@ -1,11 +1,6 @@
 <template>
   <div>
-    <Modal
-      v-show="modal"
-      @close="modal = false"
-      message="Aprobado"
-      title="Aprobado"
-    ></Modal>
+    <Modal v-show="modal" @close="modal = false" v-bind:data="response"></Modal>
     <form
       id="generar"
       class="container section box mt-4"
@@ -64,7 +59,7 @@
         <label class="label">Motivo</label>
         <div class="control">
           <div class="select">
-            <select v-model="formulario.motivo">
+            <select v-model="formulario.ventana">
               <option
                 v-for="(motivo, index) in motivos"
                 :key="index"
@@ -77,15 +72,10 @@
         </div>
       </div>
 
-      <div class="field is-grouped is-grouped-right">
+      <div class="field">
         <div class="control">
-          <button class="button is-link" v-on:click="handleEnviar">
+          <button class="button is-link is-pulled-right" v-on:click="handleEnviar">
             Enviar
-          </button>
-        </div>
-        <div class="control">
-          <button class="button is-light">
-            Cancelar
           </button>
         </div>
       </div>
@@ -108,16 +98,40 @@ export default {
         region: "",
         comuna: "",
         direccion: "",
-        motivo: null,
+        ventana: null,
       },
       motivos: [],
       modal: false,
+      response: {
+        data: {},
+        titulo: "",
+        texto: "",
+      },
     };
   },
   methods: {
     handleEnviar: function() {
-      console.log(JSON.stringify(this.formulario));
-      this.modal = true;
+      axios
+        .post("http://localhost:3000/api/permisos/", {
+          id_persona: this.formulario.rut,
+          region: this.formulario.region,
+          comuna: this.formulario.comuna,
+          direccion: this.formulario.direccion,
+          ventana: this.formulario.ventana,
+        })
+        .then((response) => {
+          this.response.data = response.data;
+          this.response.titulo = "Permiso aprobado";
+          this.response.texto =
+            "La informacion respecto de su permiso se detalla a continuacion";
+        })
+        .catch(() => {
+          this.response.titulo = "Permiso denegado";
+          this.response.texto = "Informacion entregada no valida";
+        })
+        .then(() => {
+          this.modal = true;
+        });
     },
   },
   mounted() {
