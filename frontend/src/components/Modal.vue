@@ -3,8 +3,15 @@
     <div class="modal-background" v-on:click="$emit('close')"></div>
     <div class="modal-content">
       <div class="content box">
-        <h1>{{ title }}</h1>
-        <p>{{ message }}</p>
+        <h1>{{ data.titulo }}</h1>
+        <p>{{ data.texto }}</p>
+        <div class="content">
+          <ul>
+            <li><strong>ID</strong>: {{ data.data.id }}</li>
+            <li><strong>Hora de emision</strong>: {{ data.data.hora_emision }}</li>
+            <li><strong>Valido hasta</strong>: {{ data.data.valido_hasta }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -12,6 +19,6 @@
 
 <script>
 export default {
-  props: ["message", "title"],
+  props: ["data"],
 };
 </script>
