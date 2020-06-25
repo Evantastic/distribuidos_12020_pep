@@ -31,7 +31,7 @@
           class="message"
           v-bind:class="{
             'is-success': response.es_valido,
-            'is-danger': !response.es_valido,
+            'is-danger': !response.es_valido
           }"
         >
           <div class="message-header">
@@ -75,18 +75,18 @@ export default {
       id: "",
       response: {},
       hasResponse: false,
-      buttonText: "Buscar",
+      buttonText: "Buscar"
     };
   },
   methods: {
     handleClick: function() {
       axios
         .get(`http://localhost:3000/api/permisos/${this.id}`)
-        .then((response) => {
+        .then(response => {
           this.response = response.data;
           this.hasResponse = true;
         })
-        .catch((error) => {
+        .catch(error => {
           this.response = {};
           this.hasResponse = false;
           console.log(error);
@@ -95,7 +95,7 @@ export default {
           this.buttonText = "Cerrar";
         });
       this.isHidden = !this.isHidden;
-    },
-  },
+    }
+  }
 };
 </script>

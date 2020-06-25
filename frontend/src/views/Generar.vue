@@ -74,7 +74,10 @@
 
       <div class="field">
         <div class="control">
-          <button class="button is-link is-pulled-right" v-on:click="handleEnviar">
+          <button
+            class="button is-link is-pulled-right"
+            v-on:click="handleEnviar"
+          >
             Enviar
           </button>
         </div>
@@ -89,7 +92,7 @@ import axios from "axios";
 
 export default {
   components: {
-    Modal,
+    Modal
   },
   data: function() {
     return {
@@ -98,15 +101,15 @@ export default {
         region: "",
         comuna: "",
         direccion: "",
-        ventana: null,
+        ventana: null
       },
       motivos: [],
       modal: false,
       response: {
         data: {},
         titulo: "",
-        texto: "",
-      },
+        texto: ""
+      }
     };
   },
   methods: {
@@ -117,9 +120,9 @@ export default {
           region: this.formulario.region,
           comuna: this.formulario.comuna,
           direccion: this.formulario.direccion,
-          ventana: this.formulario.ventana,
+          ventana: this.formulario.ventana
         })
-        .then((response) => {
+        .then(response => {
           this.response.data = response.data;
           this.response.titulo = "Permiso aprobado";
           this.response.texto =
@@ -132,17 +135,17 @@ export default {
         .then(() => {
           this.modal = true;
         });
-    },
+    }
   },
   mounted() {
     axios
       .get("http://localhost:3000/api/motivos")
-      .then((response) => {
+      .then(response => {
         this.motivos = response.data;
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
-  },
+  }
 };
 </script>

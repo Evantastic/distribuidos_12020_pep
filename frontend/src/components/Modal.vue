@@ -8,7 +8,9 @@
         <div class="content">
           <ul>
             <li><strong>ID</strong>: {{ data.data.id }}</li>
-            <li><strong>Hora de emision</strong>: {{ data.data.hora_emision }}</li>
+            <li>
+              <strong>Hora de emision</strong>: {{ data.data.hora_emision }}
+            </li>
             <li><strong>Valido hasta</strong>: {{ data.data.valido_hasta }}</li>
           </ul>
         </div>
@@ -19,6 +21,6 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["data"]
 };
 </script>
