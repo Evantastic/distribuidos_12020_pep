@@ -6,7 +6,8 @@ COPY package*.json /app/
 RUN npm ci
 CMD [ "npm", "run", "serve" ]
 
-FROM development AS builder
+FROM development AS build
+COPY . /app/
 RUN npm run build
 
 FROM nginx:stable-alpine as production
