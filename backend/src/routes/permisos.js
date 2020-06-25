@@ -33,8 +33,9 @@ router.post('/', async (req, res) => {
             body.comuna,
             body.direccion,
             body.motivo,
+            body.ventana,
             DateTime.local().setZone('America/Santiago').toFormat('y-LL-dd HH:mm'),
-            DateTime.local().setZone('America/Santiago').plus({ hours: data[body.motivo].ventana }).toFormat('y-LL-dd HH:mm')
+            DateTime.local().setZone('America/Santiago').plus({ hours: body.ventana }).toFormat('y-LL-dd HH:mm')
         ];
         const { rows } = await db.query(query, values);
         res.status(200).send(rows[0]);

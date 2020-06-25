@@ -1,11 +1,10 @@
-FROM node:13.12.0
-
+FROM node:lts-alpine AS development
+WORKDIR /app
 ENV CI=true
-
-WORKDIR /code
-COPY package.json package-lock.json /code/
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package*.json /app/
 RUN npm ci
-RUN npm install pm2 -g
-COPY src /code/src
+CMD [ "npm", "start" ]
+FROM development AS production
+CMD [ "npx", "pm2", "start", "/app/src/index.js", "--name", "comisaria_virtual", "--no-daemon" ]
 
-CMD [ "pm2-runtime", "./src/index.js" ]
