@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine AS development
 WORKDIR /app
 ENV CI true
 ENV PATH /app/node_modules/.bin:$PATH

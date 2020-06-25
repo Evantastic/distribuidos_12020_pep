@@ -68,9 +68,9 @@
               <option
                 v-for="(motivo, index) in motivos"
                 :key="index"
-                :value="index"
+                :value="motivo.ventana"
               >
-                {{ motivo }}
+                {{ motivo.descripcion }}
               </option>
             </select>
           </div>
@@ -95,6 +95,7 @@
 
 <script>
 import Modal from "../components/Modal.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -118,6 +119,16 @@ export default {
       console.log(JSON.stringify(this.formulario));
       this.modal = true;
     },
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/api/motivos")
+      .then((response) => {
+        this.motivos = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>

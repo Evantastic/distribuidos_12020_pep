@@ -1,32 +1,44 @@
 version: '3.4'
 
 services:
-    postgres:
-        image: postgres:12
-        ports:
-            - '5432:5432'
-        environment:
-            - POSTGRES_PASSWORD=temp
-            - POSTGRES_USER=temp
-            - POSTGRES_DB=comisaria_virtual
-        volumes:
-            - ./postgres_scripts:/docker-entrypoint-initdb.d/
-    backend:
-        build:
-            context: ./backend
-            target: development
-        image: backend:dev
-        ports:
-            - '3000:3000'
-        environment:
-            - PGUSER=temp
-            - PGHOST=postgres
-            - PGPASSWORD=temp
-            - PGDATABASE=comisaria_virtual
-            - PGPORT=5432
-            - EXPRESSPORT=3000
-            - NODE_ICU_DATA=/app/node_modules/full-icu
-        volumes:
-            - ./backend:/app
-        depends_on:
-            - postgres
+  postgres:
+    image: postgres:12
+    expose:
+      - '5432'
+    environment:
+      - POSTGRES_PASSWORD=temp
+      - POSTGRES_USER=temp
+      - POSTGRES_DB=comisaria_virtual
+    volumes:
+      - ./postgres_scripts:/docker-entrypoint-initdb.d/
+  backend:
+    build:
+      context: ./backend
+      target: development
+    image: backend:dev
+    ports:
+      - '3000:3000'
+    environment:
+      - PGUSER=temp
+      - PGHOST=postgres
+      - PGPASSWORD=temp
+      - PGDATABASE=comisaria_virtual
+      - PGPORT=5432
+      - EXPRESSPORT=3000
+      - NODE_ICU_DATA=/app/node_modules/full-icu
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - postgres
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    image: frontend:dev
+    ports: 
+      - '8080:8080'
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
