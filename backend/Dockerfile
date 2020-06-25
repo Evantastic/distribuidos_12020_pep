@@ -1,14 +1,9 @@
-FROM node:13.12.0 AS development
-
+FROM node:lts-alpine AS development
+WORKDIR /app
 ENV CI=true
-
-WORKDIR /code
-COPY package.json package-lock.json /code/
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package*.json /app/
 RUN npm ci
-COPY src /code/src
-
 CMD [ "npm", "start" ]
-
 FROM development AS production
-
-CMD [ "npx", "pm2", "start", "/code/src/index.js", "--name", "comisaria_virtual", "--no-daemon" ]
+CMD [ "npx", "pm2", "start", "/app/src/index.js", "--name", "comisaria_virtual", "--no-daemon" ]

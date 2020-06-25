@@ -2,7 +2,9 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item is-size-5 has-text-black">Comisaria virtual</router-link>
+        <router-link to="/" class="navbar-item is-size-5 has-text-black">
+          Comisaria virtual
+        </router-link>
       </div>
       <div class="navbar-menu">
         <div class="navbar-end">

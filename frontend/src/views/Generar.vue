@@ -1,48 +1,123 @@
 <template>
-  <!--
-  RUT/Pasaporte
-  Region
-  Comuna
-  Direccion
-  Motivo
-  -->
-  <form id="generar" class="container section box mt-4">
-    <div class="field">
-      <label class="label">RUT/Pasaporte</label>
-      <div class="control">
-        <input class="input is-dark is-rounded" type="text" placeholder="" />
+  <div>
+    <Modal
+      v-show="modal"
+      @close="modal = false"
+      message="Aprobado"
+      title="Aprobado"
+    ></Modal>
+    <form
+      id="generar"
+      class="container section box mt-4"
+      action="javascript:void(0);"
+    >
+      <div class="field">
+        <label class="label">RUT/Pasaporte</label>
+        <div class="control">
+          <input
+            class="input is-dark is-rounded"
+            type="text"
+            placeholder=""
+            v-model="formulario.rut"
+          />
+        </div>
+        <p class="help">No usar puntos ni guiones</p>
       </div>
-      <p class="help">No usar puntos ni guiones</p>
-    </div>
 
-    <div class="field">
-      <label class="label">Region</label>
-      <div class="control">
-        <input class="input is-dark is-rounded" type="text" placeholder="" />
+      <div class="field">
+        <label class="label">Region</label>
+        <div class="control">
+          <input
+            class="input is-dark is-rounded"
+            type="text"
+            placeholder=""
+            v-model="formulario.region"
+          />
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Comuna</label>
-      <div class="control">
-        <input class="input is-dark is-rounded" type="text" placeholder="" />
+      <div class="field">
+        <label class="label">Comuna</label>
+        <div class="control">
+          <input
+            class="input is-dark is-rounded"
+            type="text"
+            placeholder=""
+            v-model="formulario.comuna"
+          />
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Direccion</label>
-      <div class="control">
-        <input class="input is-dark is-rounded" type="text" placeholder="" />
+      <div class="field">
+        <label class="label">Direccion</label>
+        <div class="control">
+          <input
+            class="input is-dark is-rounded"
+            type="text"
+            placeholder=""
+            v-model="formulario.direccion"
+          />
+        </div>
       </div>
-    </div>
 
-    <div class="field is-grouped is-grouped-right">
-      <div class="control">
-        <button class="button is-link">Enviar</button>
+      <div class="field">
+        <label class="label">Motivo</label>
+        <div class="control">
+          <div class="select">
+            <select v-model="formulario.motivo">
+              <option
+                v-for="(motivo, index) in motivos"
+                :key="index"
+                :value="index"
+              >
+                {{ motivo }}
+              </option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="control">
-        <button class="button is-light">Cancelar</button>
+
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <button class="button is-link" v-on:click="handleEnviar">
+            Enviar
+          </button>
+        </div>
+        <div class="control">
+          <button class="button is-light">
+            Cancelar
+          </button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
+
+<script>
+import Modal from "../components/Modal.vue";
+
+export default {
+  components: {
+    Modal,
+  },
+  data: function() {
+    return {
+      formulario: {
+        rut: null,
+        region: "",
+        comuna: "",
+        direccion: "",
+        motivo: null,
+      },
+      motivos: [],
+      modal: false,
+    };
+  },
+  methods: {
+    handleEnviar: function() {
+      console.log(JSON.stringify(this.formulario));
+      this.modal = true;
+    },
+  },
+};
+</script>

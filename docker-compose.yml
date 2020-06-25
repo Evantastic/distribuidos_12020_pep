@@ -3,7 +3,6 @@ version: '3.4'
 services:
     postgres:
         image: postgres:12
-        restart: always
         ports:
             - '5432:5432'
         environment:
@@ -26,8 +25,8 @@ services:
             - PGDATABASE=comisaria_virtual
             - PGPORT=5432
             - EXPRESSPORT=3000
-            - NODE_ICU_DATA=/code/node_modules/full-icu
+            - NODE_ICU_DATA=/app/node_modules/full-icu
         volumes:
-            - ./backend:/code
+            - ./backend:/app
         depends_on:
             - postgres
