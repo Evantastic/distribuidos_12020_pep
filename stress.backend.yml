@@ -1,0 +1,29 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      rampTo: 30
+      name: "Precalentando"
+    - duration: 120
+      arrivalRate: 30
+      name: "30 conexiones por segundo"
+  payload:
+    path: "permisos.csv"
+    fields:
+      - "rut"
+      - "region"
+      - "comuna"
+      - "direccion"
+      - "ventana"
+scenarios:
+  - flow:
+    - post:
+        url: "/api/permisos"
+        json:
+          id_persona: "{{ rut }}"
+          region: "{{ region }}"
+          comuna: "{{ comuna }}"
+          direccion: "{{ direccion }}"
+          ventana: "{{ ventana }}"
+

@@ -6,5 +6,5 @@ const router = new Router();
 module.exports = router;
 
 router.get('/', (req, res) => {
-    res.status(200).send(data);
+  res.status(200).send(data);
 });
