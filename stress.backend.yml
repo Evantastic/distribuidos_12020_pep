@@ -1,13 +1,8 @@
 config:
-  target: "http://localhost:3000"
+  target: "http://34.71.183.37:3000"
   phases:
-    - duration: 60
-      arrivalRate: 10
-      rampTo: 30
-      name: "Precalentando"
-    - duration: 120
-      arrivalRate: 30
-      name: "30 conexiones por segundo"
+    - duration: 1
+      arrivalRate: 5000
   payload:
     path: "permisos.csv"
     fields:
