@@ -1,4 +1,3 @@
-
 # PEP Sistemas Distribuidos 1er Semestre 2020
 Autor: Alan Barahona Ruiz
 
@@ -54,10 +53,10 @@ La arquitectura resultante corresponde a la imagen a continuación.
 
 Característica | Descripción | Lo posee la arquitectura?
 --- | --- | ---
-Poner Recursos a disposición | Facilitar a los usuarios y aplicaciones acceder a recursos remotos de manera eficiente | x
+Poner Recursos a disposición | Facilitar a los usuarios y aplicaciones acceder a recursos remotos de manera eficiente | No, ya que el sistema está diseñado para ser ejecutado en un solo computador. En caso de no funcionar el computador, el usuario no tendría acceso al sistema
 Transparencia de la distribución | Esconder el hecho de que procesos y recursos están físicamente distribuidos en múltiples computadores | El sistema no es transparente, ya que no está configurado para estar en diferentes maquinas (ya que usa una red interna creada por `docker` para comunicar el back con la base de datos). Además, no ofrece transparencia en sus múltiples dimensiones como: acceso, ubicación, migración, re-localización, replicación, concurrencia, fallo, persistencia.
 Apertura | Ofrece servicios bajo reglas estándares | El sistema si esta abierto, ya que la comunicación entre el back y el front se realiza a través del estándar API REST.
-Escalabilidad | Capacidad de un sistema de escalar  vertical u horizontalmente. | El sistema no es escalable, ya que no posee cache, ni esta replicado ni particionado
+Escalabilidad | Capacidad de un sistema de escalar  vertical u horizontalmente. | El sistema no es escalable. El sistema no está diseñado para ser elástico, por lo que no puede escalar ni verticale ni horizontalmente. Por otro lado, tampoco se implementa una capa de caché, ni tampoco se particiona ni replica la base de datos.
 
 ## Capacidad de respuesta del sistema
 
